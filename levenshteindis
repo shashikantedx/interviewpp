@@ -1,0 +1,39 @@
+#minimum number of operation required to change from one string to other string
+#for understanding the operation take 2*2 array
+#ar[0][0]=replace
+#ar[0][1]=insert
+#ar[1][0]=delete
+#ar[1][1]=working position or replacing position by taking min from the 2*2 array
+
+
+public class Main
+{
+	public static void main(String[] args) {
+		String a="shashi";
+		String b="swapnil";
+		int al=a.length();
+		int bl=b.length();
+		
+		int[][] ar=new int[al+1][bl+1];
+		for(int i=0;i<=al;i++)
+		ar[i][0]=i;
+		for(int j=1;j<=bl;j++)
+		ar[0][j]=j;
+		
+		for(int i=1;i<=al;i++)
+		for(int j=1;j<=bl;j++){
+		    if(a.charAt(i-1)==b.charAt(j-1))
+		        ar[i][j]=ar[i-1][j-1];
+		    else{
+		    int m1=Math.min(ar[i][j-1],ar[i-1][j-1]);
+		    int m2=Math.min(m1,ar[i-1][j]);
+		    ar[i][j]=m2+1;
+		    }
+		}
+		for(int i=0;i<=al;i++){
+		for(int j=0;j<=bl;j++)
+		System.out.print(ar[i][j]+ " ");
+		System.out.println();
+		}
+	}
+}
