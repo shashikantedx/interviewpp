@@ -1,0 +1,21 @@
+#min number of coins for change.
+
+
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr={2,4,5,6,7,8};
+		int amt=54;
+		int[] na=new int[amt+1];
+		na[0]=0;
+		for(int k=1;k<=amt;k++)
+		na[k]=amt+1;
+		for(int i=1;i<=amt;i++){
+		    for(int j=0;j<arr.length;j++){
+		        if(arr[j]<=i)
+		        na[i]=Math.min((na[i-arr[j]]+1),na[i]);
+		    }      
+		}
+		System.out.println(na[amt]);
+	}
+}
