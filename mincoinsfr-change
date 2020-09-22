@@ -19,3 +19,5 @@ public class Main
 		System.out.println(na[amt]);
 	}
 }
+
+//this file is edited on 22-09-2020 timing:16:01
